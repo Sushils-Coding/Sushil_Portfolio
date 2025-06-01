@@ -65,39 +65,35 @@ export default function ProjectModal({ project, isOpen, onClose }) {
                 ))}
               </div>
 
-              {project.details && (
-                <div className="space-y-6">
-                  {project.details.problem && (
-                    <div>
-                      <h4 className="text-lg font-semibold text-amber-300 mb-2">Problem</h4>
-                      <p>{project.details.problem}</p>
-                    </div>
-                  )}
+              {project.problem && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-amber-300 mb-2">Problem</h4>
+                  <p>{project.problem}</p>
+                </div>
+              )}
 
-                  {project.details.solution && (
-                    <div>
-                      <h4 className="text-lg font-semibold text-amber-300 mb-2">Solution</h4>
-                      <p>{project.details.solution}</p>
-                    </div>
-                  )}
+              {project.solution && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-amber-300 mb-2">Solution</h4>
+                  <p>{project.solution}</p>
+                </div>
+              )}
 
-                  {project.details.features && (
-                    <div>
-                      <h4 className="text-lg font-semibold text-amber-300 mb-2">Key Features</h4>
-                      <ul className="list-disc list-inside space-y-2 pl-4">
-                        {project.details.features.map((feature, index) => (
-                          <li key={index}>{feature}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
+              {project.keyFeatures && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-amber-300 mb-2">Key Features</h4>
+                  <ul className="list-disc list-inside space-y-2 pl-4">
+                    {project.keyFeatures.map((feature, idx) => (
+                      <li key={idx}>{feature}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
-                  {project.details.impact && (
-                    <div>
-                      <h4 className="text-lg font-semibold text-amber-300 mb-2">Impact</h4>
-                      <p>{project.details.impact}</p>
-                    </div>
-                  )}
+              {project.impact && (
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-amber-300 mb-2">Impact</h4>
+                  <p>{project.impact}</p>
                 </div>
               )}
 

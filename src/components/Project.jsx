@@ -51,7 +51,7 @@ const ProjectCard = ({ project, index, setSelectedProject }) => {
 
   return (
     <motion.div
-      className="group relative bg-gradient-to-b from-blue-950 to-gray-800 rounded-2xl border border-blue-950 shadow-lg overflow-hidden cursor-pointer"
+      className="group relative bg-gradient-to-b from-blue-950 to-gray-800 rounded-2xl border border-blue-950 shadow-lg overflow-hidden cursor-pointer sm:cursor-none"
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
