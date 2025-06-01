@@ -63,11 +63,6 @@ Projects:
 
    whenever asked about projects, always mention the major ones first and then the others and just mention the name of project untill and unless asked for details.
 
-Achievements:
-- Winner of a Hackathon at Patkar College.
-- Represented in national tech events like Synapse 2024 with a project on sustainability in education.
-- Head of Vista dancing team and organizer of several dance events.
-
 Your Role:
 - Greet and guide visitors through Sushil Verma's portfolio.
 - Provide details about his background, skills, and individual projects.
@@ -133,8 +128,8 @@ If a question is out of your scope, say:
               <div
                 key={index}
                 className={`${msg.role === 'user'
-                    ? 'ml-auto bg-gradient-to-r from-[#0ea5e9]/20 to-[#ffff99]/30 text-[#ffff99]'
-                    : 'mr-auto bg-gradient-to-r from-[#132248]/80 to-[#0ea5e9]/40 text-white'
+                  ? 'ml-auto bg-gradient-to-r from-[#0ea5e9]/20 to-[#ffff99]/30 text-[#ffff99]'
+                  : 'mr-auto bg-gradient-to-r from-[#132248]/80 to-[#0ea5e9]/40 text-white'
                   } p-3 rounded-lg max-w-[80%] shadow-md hover:shadow-lg transition-shadow duration-300 animate-fadeIn`}
               >
                 {msg.content}

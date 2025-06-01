@@ -1,9 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const frontendSkills = ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"];
-const backendSkills = ["Node.js", "Express.js", "MongoDB", "Java", "Python"];
-const toolSkills = ["Git", "GitHub", "Postman", "VS Code", "Figma"];
+const frontendSkills = ['React', 'Javascript', 'Tailwind CSS', 'Redux'];
+
+const backendSkills = ["Node.js", "Express.js", "MongoDB", "SQL", "REST APIs"];
+
+const otherSkills = ["Java", "Git", "GitHub", "Postman", "VS Code", "Figma"];
 
 const Skills = () => {
   // Animation variants
@@ -204,7 +206,7 @@ const Skills = () => {
             </motion.ul>
           </motion.div>
 
-          {/* Tools Card */}
+          {/* Other Card */}
           <motion.div
             className="flex-shrink-0 bg-[#1e293b]/90 backdrop-blur-sm border border-[#854CE6]/20 rounded-2xl p-8 w-full max-w-xs shadow-lg shadow-[#854CE6]/5 relative overflow-hidden"
             variants={cardVariants}
@@ -218,10 +220,10 @@ const Skills = () => {
               className="text-3xl font-bold mb-6 text-amber-200 relative z-10"
               whileHover={{ x: 5 }}
             >
-              Tools
+              Others
             </motion.h2>
             <motion.ul className="space-y-4 relative z-10">
-              {toolSkills.map((skill, index) => (
+              {otherSkills.map((skill, index) => (
                 <motion.li
                   key={index}
                   className="text-xl font-medium"

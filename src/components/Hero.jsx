@@ -175,7 +175,7 @@ const Hero = () => {
           }}
         >
           <img
-            src="src/images/my photo.jpeg"
+            src="/my_photo.jpeg"
             className="relative h-70 w-70 sm:w-100 sm:h-100 rounded-full z-100 hover:scale-105 transition-all duration-500 ease-in-out"
             style={{
               transform: `perspective(1000px) rotateX(${tilt.x * -0.5}deg) rotateY(${tilt.y * -0.5}deg)`,

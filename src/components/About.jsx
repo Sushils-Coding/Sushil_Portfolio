@@ -81,14 +81,14 @@ const About = () => {
       </motion.div>
 
       <div className="w-screen max-w-7xl px-4 sm:px-10 lg:flex lg:justify-between lg:items-center">
-        {/* Image Section - unchanged */}
+        {/* Image Section */}
         <motion.div
           className="flex justify-center mb-8 lg:mb-0 lg:flex-shrink-0"
           variants={imageVariants}
           whileHover="hover"
         >
           <motion.img
-            src="src/images/my photo.jpeg"
+            src="/my_photo.jpeg"
             className="rounded-[10px] h-60 w-60 sm:h-100 sm:w-80 object-cover shadow-lg shadow-[#854CE6]/50"
             alt="Profile photo"
             initial={{ rotate: -5 }}
