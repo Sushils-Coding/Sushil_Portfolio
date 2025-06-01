@@ -1,6 +1,8 @@
 import React from "react";
 import { FaGraduationCap } from "react-icons/fa";
+import { GraduationCap } from 'lucide-react';
 import { motion } from "framer-motion";
+import educationData from "../data/educationData";
 
 const Education = () => {
   // Animation variants
@@ -28,50 +30,42 @@ const Education = () => {
     }
   };
 
-  const cardVariants = {
-    hidden: { x: -50, opacity: 0 },
+  const desktopItemVariants = {
+    hidden: (i) => ({ 
+      opacity: 0, 
+      x: i % 2 === 0 ? -50 : 50 
+    }),
     visible: (i) => ({
-      x: 0,
       opacity: 1,
+      x: 0,
       transition: {
         delay: i * 0.15,
         type: "spring",
         stiffness: 80,
         damping: 10
       }
-    }),
+    })
+  };
+
+  const mobileItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 10
+      }
+    }
+  };
+
+  const hoverVariant = {
     hover: {
       y: -5,
       boxShadow: "0 10px 25px -5px rgba(133, 76, 230, 0.3)"
     }
   };
-
-  const educationData = [
-    {
-      id: 1,
-      degree: "Masters Of Computer Application",
-      institution: "Thakur Institute of Management Studies, Career Development and Research",
-      period: "2024-2026 | Pursuing",
-      image: "src/images/timscdr.jpg",
-      icon: <FaGraduationCap className="text-2xl text-amber-300" />
-    },
-    {
-      id: 2,
-      degree: "Bachelor of Science (Mathematics)",
-      institution: "Viva College of Arts, Science & Commerce, University of Mumbai",
-      period: "2020-2023 | Completed | 7.6 CGPA",
-      image: "src/images/viva_clg.avif",
-      icon: <FaGraduationCap className="text-2xl text-amber-300" />
-    },
-    {
-      id: 3,
-      degree: "HSC",
-      institution: "Matruchhaya Junior College of Arts, Science & Commerce",
-      period: "2018-2020 | Completed | 79.38%",
-      image: "src/images/matruchhaya_clg.jpg",
-      icon: <FaGraduationCap className="text-2xl text-amber-300" />
-    }
-  ];
 
   return (
     <motion.div
@@ -108,54 +102,85 @@ const Education = () => {
         />
       </motion.div>
 
-      {/* Education Cards */}
-      <div className="w-full max-w-4xl space-y-6 sm:space-y-8">
+      {/* Desktop Timeline (shown on md screens and up) */}
+      <div className="hidden md:block relative w-full max-w-4xl mt-12">
+        {/* Vertical Line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-400/30" />
+
+        <div className="space-y-16">
+          {educationData.map((edu, index) => (
+            <motion.div
+              key={edu.id}
+              custom={index}
+              variants={desktopItemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className={`flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
+            >
+              {/* Content */}
+              <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                <motion.div
+                  whileHover={hoverVariant}
+                  className={`bg-[#101d42]/90 backdrop-blur-sm border-2 border-blue-900/50 p-6 rounded-xl shadow-lg ${
+                    index % 2 === 0 ? 'text-right' : 'text-left'
+                  }`}
+                >
+                  <span className="inline-block px-3 py-1 bg-amber-400/20 text-amber-300 rounded-full text-sm font-medium mb-2">
+                    {edu.year}
+                  </span>
+                  <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+                  <p className="text-purple-300 font-medium">{edu.institution}</p>
+                  <p className="text-gray-300 mt-2">{edu.period}</p>
+                </motion.div>
+              </div>
+
+              {/* Icon */}
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.6 }}
+                className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center z-10 border-4 border-[#1c294c]"
+              >
+                <GraduationCap className="w-6 h-6 text-[#0f172b]" />
+              </motion.div>
+
+              {/* Empty space for the other side */}
+              <div className="w-1/2" />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Mobile Layout (shown on screens smaller than md) */}
+      <div className="md:hidden w-full max-w-4xl mt-8 space-y-6">
         {educationData.map((edu, index) => (
           <motion.div
             key={edu.id}
-            className="bg-[#101d42]/90 backdrop-blur-sm border-2 border-blue-900/50 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 hover:border-blue-700 transition-all duration-300"
-            variants={cardVariants}
+            variants={mobileItemVariants}
             custom={index}
-            whileHover="hover"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="bg-[#101d42]/90 backdrop-blur-sm border-2 border-blue-900/50 rounded-xl shadow-lg p-6 flex flex-col items-center gap-6"
+            whileHover={hoverVariant}
           >
-            {/* College Image */}
-            <motion.div 
-              className="min-w-[140px] sm:min-w-[160px] relative"
-              whileHover={{ scale: 1.03 }}
+            {/* Icon - Centered for mobile */}
+            <motion.div
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
+              className="w-12 h-12 rounded-full bg-amber-400 flex items-center justify-center z-10 border-4 border-[#1c294c]"
             >
-              <div className="absolute -inset-2 bg-blue-700/20 rounded-lg blur-md" />
-              <img
-                src={edu.image}
-                alt={edu.institution}
-                className="w-full h-auto max-w-[160px] rounded-lg object-cover relative z-10 border-2 border-blue-900/30"
-              />
+              <GraduationCap className="w-6 h-6 text-[#0f172b]" />
             </motion.div>
 
-            {/* Education Details */}
-            <div className="text-center sm:text-left">
-              <motion.div className="flex items-center justify-center sm:justify-start gap-3 mb-3">
-                {edu.icon}
-                <motion.h1 
-                  className="text-xl sm:text-2xl font-bold"
-                  whileHover={{ x: 5 }}
-                >
-                  {edu.degree}
-                </motion.h1>
-              </motion.div>
-              
-              <motion.p 
-                className="text-gray-300 mb-4 text-sm sm:text-base"
-                whileHover={{ x: 3 }}
-              >
-                {edu.institution}
-              </motion.p>
-              
-              <motion.h2 
-                className="text-amber-300 font-medium text-sm sm:text-base"
-                whileHover={{ x: 3 }}
-              >
-                {edu.period}
-              </motion.h2>
+            {/* Content - Centered for mobile */}
+            <div className="text-center">
+              <span className="inline-block px-3 py-1 bg-amber-400/20 text-amber-300 rounded-full text-sm font-medium mb-2">
+                {edu.year}
+              </span>
+              <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+              <p className="text-purple-300 font-medium">{edu.institution}</p>
+              <p className="text-gray-300 mt-2">{edu.period}</p>
             </div>
           </motion.div>
         ))}

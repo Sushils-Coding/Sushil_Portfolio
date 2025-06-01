@@ -242,7 +242,7 @@ export const Contact = () => {
             onHoverEnd={() => setIsHovering(false)}
           >
             <motion.img 
-              src="src/images/contact_Background-removebg-preview.png" 
+              src="src/images/contact_Background.png" 
               alt="Contact illustration"
               className="w-full h-auto"
               animate={{
