@@ -8,11 +8,13 @@ import Contact from "./Contact";
 import About from "./About";
 import TopScroll from "./TopScroll";
 import Footer from "./Footer";
+import ChatBot from "./ChatBot";
 
 const Home = () => {
   return (
     <div className="snap-y snap-mandatory scroll-smooth overflow-y-auto h-screen overflow-x-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
       <Navbar />
+      <ChatBot />
       <TopScroll />
       <section id="home" className="snap-center min-h-screen h-auto">
         <Hero />

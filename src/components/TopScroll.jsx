@@ -6,7 +6,7 @@ const GoToTopButton = () => {
 
   return (
     <div
-      className={`fixed bottom-8 right-8 z-[99] transition-opacity duration-300 pointer-events-none"}`}
+      className={`fixed bottom-8 left-8 z-[99] transition-opacity duration-300 pointer-events-none"}`}
     >
       <Link to="#home" smooth>
         <button
