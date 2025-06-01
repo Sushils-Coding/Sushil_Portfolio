@@ -12,7 +12,7 @@ import ChatBot from "./ChatBot";
 
 const Home = () => {
   return (
-    <div className="snap-y snap-mandatory scroll-smooth overflow-y-auto h-screen overflow-x-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+    <div className="scroll-smooth overflow-y-auto h-screen overflow-x-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:snap-y md:snap-mandatory">
       <Navbar />
       <ChatBot />
       <TopScroll />

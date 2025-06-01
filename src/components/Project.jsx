@@ -198,7 +198,7 @@ const Projects = () => {
 
         {/* Mobile/small screens (horizontal scroll) */}
         <motion.div 
-          className="md:hidden flex flex-nowrap overflow-x-auto gap-6 snap-x snap-mandatory px-4 scrollbar-thin scrollbar-thumb-blue-900 pb-4 scroll-smooth"
+          className="md:hidden flex flex-nowrap overflow-x-auto gap-6 sm:snap-x sm:snap-mandatory px-4 scrollbar-thin scrollbar-thumb-blue-900 pb-4 sm:scroll-smooth"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: false }}

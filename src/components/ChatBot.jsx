@@ -107,7 +107,7 @@ If a question is out of your scope, say:
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex items-end">
+    <div className="fixed bottom-5 right-5 z-999 flex items-end">
       {isOpen && (
         <div className="bg-[#090e1a] rounded-lg shadow-2xl w-80 h-96 mr-4 flex flex-col animate-slideIn border border-[#0ea5e9] backdrop-blur-sm bg-opacity-95">
           <div className="bg-gradient-to-r from-[#132248] to-[#0ea5e9] p-4 rounded-t-lg flex justify-between items-center">
