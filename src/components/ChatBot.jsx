@@ -150,7 +150,7 @@ If a question is out of your scope, say:
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
-                placeholder="Ask about toys..."
+                placeholder="Ask about me..."
                 className="flex-1 p-2 border border-[#0ea5e9] rounded-lg focus:ring-2 focus:ring-[#0ea5e9] focus:border-transparent bg-[#132248] text-[#ffff99] placeholder-[#ffff99]/60"
               />
               <button

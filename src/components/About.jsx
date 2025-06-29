@@ -127,14 +127,10 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
           >
-            I am a Full-Stack developer based in Mumbai, India. I completed my
-            Bachelor of Science in Mathematics from Viva College, University of
-            Mumbai. Driven by my growing interest in technology, I shifted to IT
-            and am currently pursuing my MCA at Thakur Institute of Management
-            Studies.
+            I am a Full-Stack developer based in Mumbai, India. I completed my Bachelor of Science from Viva College, University of Mumbai. My curiosity for solving real-world problems through technology led me to pursue a career in IT, and I am currently advancing my knowledge through an MCA at Thakur Institute of Management Studies.
             <br />
-            <br />I am very passionate about improving my coding skills and
-            developing applications and websites.
+            <br />
+            I am very passionate about improving my coding skills and developing applications and websites.
           </motion.p>
 
           <motion.div
