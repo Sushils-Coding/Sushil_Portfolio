@@ -157,7 +157,7 @@ const About = () => {
           </motion.div>
 
           <motion.a
-            href="https://shorturl.at/7idxA"
+            href="https://shorturl.at/lEu4W"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block group mt-4 cursor-pointer sm:cursor-none"

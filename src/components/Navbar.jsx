@@ -148,7 +148,7 @@ const Navbar = () => {
 
             <motion.li variants={itemVariants}>
               <a
-                href="https://shorturl.at/1rOy8"
+                href="https://shorturl.at/lEu4W"
                 target="_blank"
                 className="hover:underline cursor-pointer sm:cursor-none"
               >

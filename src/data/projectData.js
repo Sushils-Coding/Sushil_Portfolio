@@ -21,8 +21,8 @@ const projects = [
         tags: ["React", "MongoDB", "Node.js", "Tailwind CSS", "Express.js"],
         description: "A MERN-based platform for toy rental and purchase with subscription-based access and intelligent filtering.",
         image: "/ToyNest.png",
-        live: "https://toynest-web-app.vercel.app/",
-        repo: "https://github.com/Sushils-Coding/Toynest-webApp",
+        live: "https://toynest.vercel.app/",
+        repo: "https://github.com/Sushils-Coding/Toynest",
         problem: "Parents spend heavily on toys that children outgrow quickly, leading to waste and cost inefficiency.",
         solution: "A subscription-based model allowing parents to borrow and exchange toys multiple times per month, cutting costs and reducing waste.",
         keyFeatures: [

@@ -42,8 +42,8 @@ Projects:
      - Non-subscribers can buy toys as usual.
      - Subscribers (₹799/month) can borrow up to 5 toys and exchange them 3 times a month.
    - Features: Wishlist, cart, parental insights, catalogue with age-wise filtering, subscription plans, seller contact form, login/authentication, chatbot integration.
-   - Live: [toynest-web-app.vercel.app](https://toynest-web-app.vercel.app/)
-   - GitHub: [ToyNest Repo](https://github.com/Sushils-Coding/Toynest-webApp)
+   - Live: [toynest-web-app.vercel.app](https://toynest.vercel.app/)
+   - GitHub: [ToyNest Repo](https://github.com/Sushils-Coding/Toynest)
 
 3. **NewsMonkey**
    - Description: A category-wise live news website that presents current events in an interactive and user-friendly format.
