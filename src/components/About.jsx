@@ -2,62 +2,68 @@ import React from "react";
 import { IoMdOpen } from "react-icons/io";
 import { motion } from "framer-motion";
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const textItemVariants = {
+  hidden: { x: 50, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { scale: 0.8, opacity: 0 },
+  visible: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      delay: 0.2,
+    },
+  },
+  hover: {
+    scale: 1.05,
+    transition: { duration: 0.3 },
+  },
+};
+
+const buttonVariants = {
+  hover: {
+    scale: 1.05,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 10,
+    },
+  },
+  tap: {
+    scale: 0.95,
+  },
+};
+
+// Constants
+const RESUME_URL = "https://shorturl.at/lEu4W";
+const EMAIL = "sushilverma40408@gmail.com";
+const LOCATION = "Mumbai, India";
+
+
 const About = () => {
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        when: "beforeChildren"
-      }
-    }
-  };
-
-  const textItemVariants = {
-    hidden: { x: 50, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
-    }
-  };
-
-  const imageVariants = {
-    hidden: { scale: 0.8, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        delay: 0.2
-      }
-    },
-    hover: {
-      scale: 1.05,
-      transition: { duration: 0.3 }
-    }
-  };
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.05,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 10
-      }
-    },
-    tap: {
-      scale: 0.95
-    }
-  };
 
   return (
     <motion.div
@@ -117,7 +123,7 @@ const About = () => {
               className="text-xl sm:text-2xl font-semibold text-amber-200"
               whileHover={{ x: 5 }}
             >
-              Full Stack Developer
+              Software Developer
             </motion.h3>
           </motion.div>
 
@@ -127,21 +133,22 @@ const About = () => {
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
           >
-            I am a Full-Stack developer based in Mumbai, India. I completed my Bachelor of Science from Viva College, University of Mumbai. My curiosity for solving real-world problems through technology led me to pursue a career in IT, and I am currently advancing my knowledge through an MCA at Thakur Institute of Management Studies.
+            I am a Software Developer based in Mumbai, India, with strong experience in building scalable, production-ready web applications. I hold a Bachelor of Science from Viva College, University of Mumbai, and an MCA from Thakur Institute of Management Studies. With a problem-solving mindset and a focus on real-world impact, I specialize in designing reliable systems, optimizing performance, and delivering robust end-to-end solutions.
             <br />
             <br />
-            I am very passionate about improving my coding skills and developing applications and websites.
+            With hands-on experience as a Web Developer Intern at Celebrare and Full Stack Developer Intern at SakalpSphere, I have built scalable media upload systems using Google Drive APIs and multiple service accounts, developed backend APIs for seamless collage creation and batch-based uploads, and created responsive UI components with RESTful APIs and optimized database queries to deliver reliable, high-performance applications.
           </motion.p>
 
           <motion.div
             className="flex gap-2 items-baseline"
-            variants={textItemVariants} initial="hidden"
+            variants={textItemVariants}
+            initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }}
             whileHover={{ x: 5 }}
           >
             <span className="text-amber-200 font-medium">Email:</span>
-            <span>sushilverma40408@gmail.com</span>
+            <span>{EMAIL}</span>
           </motion.div>
 
           <motion.div
@@ -153,11 +160,11 @@ const About = () => {
             whileHover={{ x: 5 }}
           >
             <span className="text-amber-200 font-medium">Place:</span>
-            <span>Mumbai, India</span>
+            <span>{LOCATION}</span>
           </motion.div>
 
           <motion.a
-            href="https://shorturl.at/lEu4W"
+            href={RESUME_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block group mt-4 cursor-pointer sm:cursor-none"

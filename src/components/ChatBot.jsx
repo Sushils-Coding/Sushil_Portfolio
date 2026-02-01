@@ -15,7 +15,7 @@ const ChatBot = () => {
 
 About Sushil Verma:
 - Full Name: Sushil Verma
-- Role: Full Stack Developer (MERN)
+- Role: Software Developer (MERN)
 - Education: Currently pursuing MCA (Master of Computer Applications) from Thakur Institute of Management Studies, Career Development & Research.
 - Career Goal: To work as a software engineer at a forward-thinking organization and contribute to its innovation and growth through technology.
 - Location: Mumbai, India

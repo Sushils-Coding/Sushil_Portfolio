@@ -19,7 +19,7 @@ const Navbar = () => {
   // Handle scroll to determine active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "education", "contact"];
+      const sections = ["home", "about", "skills", "experience", "projects", "education", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -132,7 +132,7 @@ const Navbar = () => {
             initial="hidden"
             animate="show"
           >
-            {['about', 'skills', 'projects', 'education', 'contact'].map((section) => (
+            {['about', 'skills', 'experience', 'projects', 'education', 'contact'].map((section) => (
               <motion.li key={section} variants={itemVariants}>
                 <Link to={`#${section}`} smooth onClick={() => handleNavClick(section)}>
                   <motion.span 
@@ -227,7 +227,7 @@ const Navbar = () => {
             animate="open"
             exit="closed"
           >
-            {['about', 'skills', 'projects', 'education', 'contact'].map((section) => (
+            {['about', 'skills', 'experience', 'projects', 'education', 'contact'].map((section) => (
               <motion.li 
                 key={section}
                 variants={mobileItemVariants}
