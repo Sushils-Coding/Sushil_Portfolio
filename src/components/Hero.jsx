@@ -1,80 +1,84 @@
 import React, { useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import { RiScrollToBottomLine } from "react-icons/ri";
-import { HashLink as Link } from 'react-router-hash-link';
+import { HashLink as Link } from "react-router-hash-link";
 import { motion } from "framer-motion";
+
+// Animation Variants - Defined outside component for better performance
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      when: "beforeChildren",
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
+const textVariants = {
+  hidden: { x: -100, opacity: 0 },
+  visible: {
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.8, ease: "backOut" },
+  },
+};
+
+const buttonHoverVariants = {
+  scale: 1.08,
+  boxShadow: "0 0 20px #ffff99, 0 0 40px #0ea5e9",
+  backgroundColor: "#0ea5e9",
+  color: "#fff",
+  transition: { duration: 0.3 },
+};
+
+const sliderVariants = {
+  initial: { x: 0 },
+  animate: {
+    x: "-100%",
+    transition: {
+      duration: 10,
+      ease: "linear",
+      repeat: Infinity,
+      repeatType: "mirror",
+    },
+  },
+};
+
+const scrollButtonVariants = {
+  bounce: {
+    y: [0, 10, 0],
+    transition: {
+      duration: 1.5,
+      repeat: Infinity,
+      ease: "easeInOut",
+    },
+  },
+  hover: {
+    y: 0,
+    color: "#3b82f6",
+    transition: { duration: 0.2 },
+  },
+};
+
+// Navigation Links Data
+const heroLinks = [
+  { to: "#projects", label: "See my latest Works" },
+  { to: "#contact", label: "Contact Me" },
+];
 
 const Hero = () => {
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        when: "beforeChildren"
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    }
-  };
-
-  const textVariants = {
-    hidden: { x: -100, opacity: 0 },
-    visible: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 0.8, ease: "backOut" }
-    }
-  };
-
-  const buttonVariants = {
-    hover: {
-      scale: 1.08,
-      boxShadow: "0 0 20px #ffff99, 0 0 40px #0ea5e9",
-      backgroundColor: "#0ea5e9",
-      color: "#fff",
-      transition: { duration: 0.3 }
-    }
-  };
-
-  const sliderVariants = {
-    initial: { x: 0 },
-    animate: {
-      x: '-100%',
-      transition: {
-        duration: 10,
-        ease: 'linear',
-        repeat: Infinity,
-        repeatType: 'mirror',
-      }
-    }
-  };
-
-  const scrollButtonVariants = {
-    bounce: {
-      y: [0, 10, 0],
-      transition: {
-        duration: 1.5,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    },
-    hover: {
-      y: 0,
-      color: "#3b82f6",
-      transition: { duration: 0.2 }
-    }
-  };
 
   const handleMouseMove = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -134,7 +138,7 @@ const Hero = () => {
               sequence={[
                 `Programmer!`,
                 1000,
-                "Full Stack Developer!",
+                "Software Developer!",
                 1000,
               ]}
               Wrapper="span"
@@ -143,18 +147,15 @@ const Hero = () => {
             />
           </motion.div>
 
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             className="buttons flex gap-4 mt-4"
           >
-            {[
-              { to: "#projects", label: "See my latest Works" },
-              { to: "#contact", label: "Contact Me" }
-            ].map(({ to, label }) => (
+            {heroLinks.map(({ to, label }) => (
               <Link to={to} key={label}>
                 <motion.button
                   variants={itemVariants}
-                  whileHover={buttonVariants.hover}
+                  whileHover={buttonHoverVariants}
                   className="px-6 py-3 rounded-full font-semibold bg-[#132248] text-[#ffff99] border-2 border-[#0ea5e9] shadow-lg hover:shadow-[0_0_30px_#0ea5e9]"
                 >
                   {label}

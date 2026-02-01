@@ -1,42 +1,51 @@
-import React, { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { motion } from "framer-motion";
+
+// Cursor Configuration
+const CURSOR_COUNT = 16;
+const BASE_SIZE = 20;
+const BASE_DURATION = 0.1;
+const DURATION_INCREMENT = 0.01;
+
 
 const Cursor = () => {
-    const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
-    useEffect(() => {
-        const mouseMove = (e) => {
-            setPosition({ x: e.clientX + 3, y: e.clientY + 3 })
-        }
+  const handleMouseMove = useCallback((e) => {
+    setPosition({ x: e.clientX + 3, y: e.clientY + 3 });
+  }, []);
 
-        window.addEventListener('mousemove', mouseMove);
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [handleMouseMove]);
 
-        return () => {
-            window.removeEventListener('mousemove', mouseMove)
-        }
-    }, [])
+  const variants = useMemo(
+    () => ({
+      animate: { x: position.x, y: position.y },
+    }),
+    [position.x, position.y]
+  );
 
-    const variants = {
-        animate: { x: position.x, y: position.y },
-    }
-
-    const cursors = Array.from({ length: 16 }, (_, i) => (
+  const cursors = useMemo(
+    () =>
+      Array.from({ length: CURSOR_COUNT }, (_, i) => (
         <motion.div
-            key={i}
-            className={`fixed z-[999] rounded-full bg-black hidden md:block`}
-            style={{
-                height: `${20 - i}px`,
-                width: `${20 - i}px`
-            }}
-            variants={variants}
-            animate="animate"
-            transition={{ duration: 0.1 + i * 0.01 }}
+          key={i}
+          className="fixed z-[999] rounded-full bg-black hidden md:block"
+          style={{
+            height: `${BASE_SIZE - i}px`,
+            width: `${BASE_SIZE - i}px`,
+          }}
+          variants={variants}
+          animate="animate"
+          transition={{ duration: BASE_DURATION + i * DURATION_INCREMENT }}
         />
-    ));
+      )),
+    [variants]
+  );
 
-    return (
-        <>{cursors}</>
-    )
-}
+  return <>{cursors}</>;
+};
 
-export default Cursor
+export default Cursor;
